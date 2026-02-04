@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Intiem</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="app">
+        <!-- Hidden Audio Element -->
+        <audio id="audio-player" preload="none" crossorigin="anonymous"></audio>
+
+        <!-- Header Section -->
+        <header class="header">
+          <div class="header-content">
+            <div class="header-text-section">
+              <div class="header-details">
+                <div class="broadcast-info">
+                  <span class="broadcast-text">ELKE Zaterdag op de AM</span>
+                  <p class="broadcast-text">Precies als vroeger, zoals het hoort.</p>
+                </div>
+                <img src="images/logot_test.png" alt="Radio Intiem Logo" class="header-logo" />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Sticky Navigation Menu -->
+        <nav class="sticky-nav">
+          <ul class="nav-list">
+            <li><a href="#geschiedenis" class="nav-link">Geschiedenis</a></li>
+            <li><a href="#uitzenddagen" class="nav-link">Uitzenddagen</a></li>
+            <li><a href="#dj-s" class="nav-link">DJ's</a></li>
+            <li><a href="#fotoalbum" class="nav-link">Fotoalbum</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Main Content Sections -->
+        <main class="main-content">
+          <section id="geschiedenis" class="section section-1">
+            <h2>Geschiedenis</h2>
+            <div class="history-container">
+              <div class="history-intro">
+                <p class="history-subtitle">Van kleine lokale zender tot geliefde AM-station</p>
+                <p class="history-description">
+                  Radio Intiem heeft een rijke geschiedenis die teruggaat tot de jaren 70. Wat begon als een kleine lokale radiozender
+                  is uitgegroeid tot een geliefd AM-station dat elke zaterdag duizenden luisteraars bereikt met klassieke hits en
+                  Nederlandse muziek.
+                </p>
+              </div>
+
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-year">1975</div>
+                  <div class="timeline-content">
+                    <h3>De Geboorte van Radio Intiem</h3>
+                    <p>Een groep muziekliefhebbers richt Radio Intiem op als lokale zender. De eerste uitzendingen vinden plaats vanuit een kleine studio in het centrum van de stad.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">1980</div>
+                  <div class="timeline-content">
+                    <h3>Eerste AM-Licentie</h3>
+                    <p>Radio Intiem krijgt zijn eerste officiële AM-licentie en begint met regelmatige uitzendingen op 1008 KHZ. De zender wordt een vaste waarde in de regio.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">1985</div>
+                  <div class="timeline-content">
+                    <h3>Uitbreiding van het Team</h3>
+                    <p>Het eerste team van diskjockey's wordt samengesteld. Elke DJ brengt zijn eigen muzikale voorkeur mee, wat zorgt voor een gevarieerd programma.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">1990</div>
+                  <div class="timeline-content">
+                    <h3>Nieuwe Studio</h3>
+                    <p>Radio Intiem verhuist naar een moderne studio met betere apparatuur. De kwaliteit van de uitzendingen verbetert aanzienlijk en het bereik wordt uitgebreid.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">2000</div>
+                  <div class="timeline-content">
+                    <h3>Focus op Zaterdag</h3>
+                    <p>Vanwege veranderende media-landschap besluit Radio Intiem zich te concentreren op zaterdag-uitzendingen. Dit wordt een groot succes.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">2010</div>
+                  <div class="timeline-content">
+                    <h3>Digitale Modernisering</h3>
+                    <p>De studio wordt volledig gemoderniseerd met digitale apparatuur. De klassieke AM-uitzendingen blijven behouden voor de trouwe luisteraars.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">2020</div>
+                  <div class="timeline-content">
+                    <h3>45 Jaar Radio Intiem</h3>
+                    <p>Radio Intiem viert zijn 45-jarig jubileum. Het station blijft trouw aan zijn roots: klassieke hits, Nederlandse muziek en persoonlijke presentatie.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-year">2025</div>
+                  <div class="timeline-content">
+                    <h3>Heden</h3>
+                    <p>Radio Intiem blijft elke zaterdag uitzenden op AM 1008 KHZ. Met een trouwe schare luisteraars en een team van ervaren DJ's blijft het station een unieke plek in het Nederlandse radioklimaat.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="uitzenddagen" class="section section-2">
+            <h2>Uitzenddagen</h2>
+            <div class="schedule-container">
+              <div class="schedule-header">
+                <h3>Zaterdag Programmering</h3>
+                <p class="schedule-subtitle">Elke zaterdag van 10:00 tot 20:00 op AM 1008 KHZ</p>
+              </div>
+
+              <div class="schedule-grid">
+                <div class="schedule-item">
+                  <div class="time-slot">10:00 - 12:30</div>
+                  <div class="program-info">
+                    <h4 class="program-title">Morning Classics</h4>
+                    <p class="program-dj">met DJ Marco</p>
+                    <p class="program-description">Start je zaterdag met de beste klassieke rock en pop hits</p>
+                  </div>
+                </div>
+
+                <div class="schedule-item">
+                  <div class="time-slot">12:30 - 15:00</div>
+                  <div class="program-info">
+                    <h4 class="program-title">Nederlandse Hits</h4>
+                    <p class="program-dj">met DJ Lisa</p>
+                    <p class="program-description">De mooiste Nederlandse muziek van toen en nu</p>
+                  </div>
+                </div>
+
+                <div class="schedule-item">
+                  <div class="time-slot">15:00 - 17:30</div>
+                  <div class="program-info">
+                    <h4 class="program-title">Jazz & Blues Hour</h4>
+                    <p class="program-dj">met DJ Frank</p>
+                    <p class="program-description">Ontspan met de beste jazz en blues muziek</p>
+                  </div>
+                </div>
+
+                <div class="schedule-item">
+                  <div class="time-slot">17:30 - 20:00</div>
+                  <div class="program-info">
+                    <h4 class="program-title">Disco Fever</h4>
+                    <p class="program-dj">met DJ Marie</p>
+                    <p class="program-description">Dans de middag weg met disco en funk klassiekers</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="schedule-footer">
+                <div class="frequency-info">
+                  <span class="frequency-label">Luister op:</span>
+                  <span class="frequency-value">AM 1008 KHZ</span>
+                </div>
+                <div class="broadcast-info">
+                  <span class="broadcast-label">Elke zaterdag</span>
+                  <span class="broadcast-time">10:00 - 20:00</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="dj-s" class="section section-3">
+            <h2>Onze Diskjockey's</h2>
+            <div class="dj-showcase">
+              <div class="dj-grid">
+                <div class="dj-card">
+                  <div class="dj-photo dj-photo-placeholder" data-dj="1">
+                    <span class="dj-placeholder-text">M</span>
+                  </div>
+                  <div class="dj-info">
+                    <h3 class="dj-name">DJ Marco</h3>
+                    <p class="dj-specialty">Classic Rock & Pop</p>
+                    <p class="dj-description">Met zijn passie voor klassieke hits en verhalen uit de gouden jaren.</p>
+                    <div class="dj-schedule">
+                      <span class="schedule-label">Zaterdag:</span>
+                      <span class="schedule-time">10:00 - 12:30</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dj-card">
+                  <div class="dj-photo dj-photo-placeholder" data-dj="2">
+                    <span class="dj-placeholder-text">L</span>
+                  </div>
+                  <div class="dj-info">
+                    <h3 class="dj-name">DJ Lisa</h3>
+                    <p class="dj-specialty">Nederlandse Hits</p>
+                    <p class="dj-description">De koningin van de Nederlandse muziek met een warme stem.</p>
+                    <div class="dj-schedule">
+                      <span class="schedule-label">Zaterdag:</span>
+                      <span class="schedule-time">12:30 - 15:00</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dj-card">
+                  <div class="dj-photo dj-photo-placeholder" data-dj="3">
+                    <span class="dj-placeholder-text">F</span>
+                  </div>
+                  <div class="dj-info">
+                    <h3 class="dj-name">DJ Frank</h3>
+                    <p class="dj-specialty">Jazz & Blues</p>
+                    <p class="dj-description">Een echte muziekliefhebber met kennis van jazz en blues.</p>
+                    <div class="dj-schedule">
+                      <span class="schedule-label">Zaterdag:</span>
+                      <span class="schedule-time">15:00 - 17:30</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dj-card">
+                  <div class="dj-photo dj-photo-placeholder" data-dj="4">
+                    <span class="dj-placeholder-text">M</span>
+                  </div>
+                  <div class="dj-info">
+                    <h3 class="dj-name">DJ Marie</h3>
+                    <p class="dj-specialty">Disco & Funk</p>
+                    <p class="dj-description">Brengt de dansvloer tot leven met disco en funk klassiekers.</p>
+                    <div class="dj-schedule">
+                      <span class="schedule-label">Zaterdag:</span>
+                      <span class="schedule-time">17:30 - 20:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="fotoalbum" class="section section-4">
+            <h2>Fotoalbum</h2>
+            <div class="photo-album">
+              <div class="photo-grid">
+                <div class="photo-item" data-image="album/antique-radio-6867832_640.jpg">
+                  <img src="album/antique-radio-6867832_640.jpg" alt="Antique Radio" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/antiques-4274012_640.jpg">
+                  <img src="album/antiques-4274012_640.jpg" alt="Antiques Collection" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/old-radio-1663517_640.jpg">
+                  <img src="album/old-radio-1663517_640.jpg" alt="Old Radio" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/radio-1547786_640.jpg">
+                  <img src="album/radio-1547786_640.jpg" alt="Classic Radio" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/radio-2224443_640.jpg">
+                  <img src="album/radio-2224443_640.jpg" alt="Vintage Radio" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/radio-4292411_640.jpg">
+                  <img src="album/radio-4292411_640.jpg" alt="Retro Radio" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/radio-5045924_640.jpg">
+                  <img src="album/radio-5045924_640.jpg" alt="Radio Equipment" loading="lazy" />
+                </div>
+                <div class="photo-item" data-image="album/transistor-1064568_640.jpg">
+                  <img src="album/transistor-1064568_640.jpg" alt="Transistor Radio" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" class="section section-5">
+            <h2>Contact</h2>
+            <div class="contact-container">
+              <div class="contact-info">
+                <h3>Neem Contact Op</h3>
+                <p class="contact-description">
+                  Heb je vragen, opmerkingen of wil je een muziekverzoek doen?
+                  Stuur ons een email en we nemen zo snel mogelijk contact met je op.
+                </p>
+
+                <div class="email-info">
+                  <div class="email-item">
+                    <div class="email-icon">📧</div>
+                    <div class="email-details">
+                      <h4>Algemene Vragen</h4>
+                      <a href="mailto:info@radiointiem.nl" class="email-link">info@radiointiem.nl</a>
+                    </div>
+                  </div>
+
+                  <div class="email-item">
+                    <div class="email-icon">🎵</div>
+                    <div class="email-details">
+                      <h4>Muziekverzoeken</h4>
+                      <a href="mailto:verzoeken@radiointiem.nl" class="email-link">verzoeken@radiointiem.nl</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Full-width footer image below Contact -->
+          <div class="fullwidth-footer-image">
+            <img src="images/footer.png" alt="Footer Banner" />
+          </div>
+        </main>
+
+        <!-- Sticky Radio Player Footer -->
+        <footer class="radio-player-footer">
+          <div class="player-content">
+            <div class="track-info">
+              <div class="track-artwork">
+                <img src="images/logo.jpg" alt="Radio Intiem Logo" class="player-logo" />
+              </div>
+              <div class="track-details">
+                <h3 class="track-title">Radio Intiem</h3>
+                <div class="live-indicator">
+                  <span id="live-dot" class="live-dot offline"></span>
+                  <span id="live-text" class="live-text">OFFLINE</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="player-controls">
+              <button id="play-btn" class="control-btn play-btn" disabled>▶</button>
+              <div class="volume-control">
+                <span class="volume-icon">🔊</span>
+                <input
+                  type="range"
+                  id="volume-slider"
+                  min="0"
+                  max="100"
+                  value="100"
+                  class="volume-slider"
+                />
+                <span id="volume-value" class="volume-value">100%</span>
+              </div>
+              <div id="error-indicator" class="error-indicator" style="display: none;">
+                <span class="error-text">Connection Error</span>
+              </div>
+            </div>
+
+            <div class="player-status">
+              <div class="frequency-display">
+                <span class="freq-label">AM</span>
+                <span class="freq-value">1008 KHZ</span>
+              </div>
+              <div id="signal-indicator" class="signal-indicator offline-indicator">
+                <span class="offline-cross">✕</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Image Modal -->
+        <div id="image-modal" class="image-modal-overlay" style="display: none;">
+          <div class="image-modal-content">
+            <button id="modal-close-btn" class="image-modal-close">×</button>
+            <img id="modal-image" src="" alt="Enlarged view" class="image-modal-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
