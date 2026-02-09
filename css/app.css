@@ -581,7 +581,7 @@ html {
 }
 
 .section.section-2 {
-  background: var(--bg-secondary) url('../images/station_01.jpg');
+  background: var(--bg-secondary) url('../images/vlag.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -724,6 +724,7 @@ html {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border-left: 4px solid var(--accent-primary);
+  transform: translateX(0px);
 }
 
 .schedule-item:hover {
@@ -779,6 +780,7 @@ html {
   border-radius: 12px;
   border: 1px solid var(--border-color);
   margin-top: 2rem;
+  transform: translateX(0px);
 }
 
 .frequency-info, .broadcast-info {
@@ -786,6 +788,7 @@ html {
   flex-direction: column;
   /* align-items: center; */
   gap: 0.25rem;
+  transform: translateX(0px);
 }
 
 .frequency-label, .broadcast-label {
@@ -1036,6 +1039,28 @@ html {
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
+}
+
+.photo-item::after {
+  content: '🔍';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.photo-item:hover::after {
+  opacity: 1;
 }
 
 .photo-item:hover img {
@@ -1999,14 +2024,15 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
+  padding: 2rem;
   animation: fadeIn 0.3s ease-out;
 }
 
 .image-modal-content {
   position: relative;
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2014,7 +2040,7 @@ html {
 
 .image-modal-image {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 85vh;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -2052,6 +2078,27 @@ html {
 /* Add cursor pointer to photo items */
 .photo-item {
   cursor: pointer;
+}
+
+.photo-item::before {
+  content: 'Klik om te vergroten';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.photo-item:hover::before {
+  opacity: 1;
 }
 
 /* Animations */
