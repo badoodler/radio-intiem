@@ -57,6 +57,44 @@ html {
   padding: 0 2rem;
 }
 
+/* Hamburger Menu Button */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 101;
+  min-width: auto;
+  min-height: auto;
+  box-shadow: none;
+  margin: 0.75rem 0;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 .nav-list {
   display: flex;
   justify-content: center;
@@ -220,6 +258,7 @@ html {
   background-size: 100%;
   background-position: top;
   background-repeat: no-repeat;
+  background-attachment: scroll;
   position: relative;
   overflow: hidden;
 }
@@ -585,6 +624,7 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: scroll;
   position: relative;
   overflow: hidden;
 }
@@ -629,8 +669,9 @@ html {
 .section-3 {
   background-image: url('../images/station_02_01.png');
   background-size: cover;
-  background-position: absolute;
+  background-position: center;
   background-repeat: no-repeat;
+  background-attachment: scroll;
   position: relative;
   overflow: hidden;
 }
@@ -823,6 +864,13 @@ html {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   padding: 0 1rem;
+}
+
+@media (max-width: 1024px) {
+  .dj-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 .dj-card {
@@ -1086,7 +1134,7 @@ html {
   height: 100px;
   background: var(--bg-primary);
   border-top: 1px solid var(--border-color);
-  z-index: 1000;
+  z-index: 1001;
   box-shadow: 0 -4px 12px var(--shadow-light);
   backdrop-filter: blur(10px);
 }
@@ -1425,259 +1473,535 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
   .header {
-    padding: 1.5rem 1rem 1rem;
+    padding: 0.75rem 0.75rem 0.5rem;
   }
-  
+
   .header-content {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.75rem;
     text-align: center;
   }
-  
+
+  .header-logo {
+    height: 55px;
+  }
+
+  .broadcast-info {
+    padding: 0.4rem 0.9rem;
+  }
+
+  .broadcast-text {
+    font-size: 0.8rem;
+  }
+
+  /* Hamburger Menu for Mobile */
   .sticky-nav {
     padding: 0 1rem;
+    position: relative;
   }
-  
+
+  .hamburger-menu {
+    display: flex;
+  }
+
   .nav-list {
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 0.75rem 0;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--bg-primary);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 5rem 0 2rem;
+    gap: 0;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s ease;
+    z-index: 100;
+    overflow-y: auto;
   }
-  
+
+  .nav-list.active {
+    right: 0;
+  }
+
+  .nav-list li {
+    margin: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
   .nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
     font-size: 1rem;
-    padding: 0.6rem 1.2rem;
+    text-align: left;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    width: 100%;
   }
-  
-  .header-logo {
-    height: 70px;
+
+  .nav-link:hover {
+    background: var(--bg-accent);
+    transform: none;
+    box-shadow: none;
   }
-  
+
+  /* Mobile menu overlay */
+  .nav-list.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
   .header-text-section {
     text-align: center;
   }
-  
+
   .welcome-text {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
     padding-left: 0;
   }
-  
+
   .header-details {
     justify-content: center;
-    gap: 1.5rem;
-    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex-direction: row;
     padding-left: 0;
   }
-  
+
   .frequency-info,
   .broadcast-info {
     padding: 0.5rem 1rem;
-  }
-  
-  .section {
-    padding: 3rem 1.5rem;
-  }
-  
-  .section h2 {
-    font-size: 2rem;
-  }
-  
-  .section p {
-    font-size: 1.1rem;
-  }
-  
-  .history-subtitle {
-    font-size: 1.2rem;
+    flex: 0 1 auto;
   }
 
-  .history-description {
+  .section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .section h2 {
+    font-size: 1.9rem;
+  }
+
+  .section p {
     font-size: 1rem;
   }
 
+  .history-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .history-description {
+    font-size: 0.95rem;
+  }
+
+  .history-container {
+    padding: 1.5rem 0;
+  }
+
   .story-block {
-    padding: 1.5rem 1.5rem;
+    padding: 1.25rem;
     margin-bottom: 1rem;
   }
 
   .story-block h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .story-block p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
+  /* Simplified Mobile Timeline */
   .timeline::before {
-    left: 30px;
+    display: none;
   }
-  
+
   .timeline-item {
-    flex-direction: row !important;
-    padding-left: 60px;
+    flex-direction: column !important;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
   }
-  
+
   .timeline-year {
-    position: absolute;
-    left: -60px;
+    position: static;
+    width: auto;
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0.25rem;
+    border: none;
+    border-radius: 0;
+    text-align: left;
+    display: block;
+    line-height: 1.2;
     flex: none;
-    width: 60px;
-    height: 60px;
-    font-size: 1rem;
-    padding: 0.5rem;
   }
-  
+
+  .timeline-year::before {
+    display: none !important;
+  }
+
   .timeline-content {
     margin: 0 !important;
-    padding: 1.5rem;
+    padding: 1rem;
+    width: 100%;
   }
-  
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content li {
+    font-size: 0.9rem;
+  }
+
   .values-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
   }
-  
+
   .schedule-header h3 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
-  
+
+  .schedule-subtitle {
+    font-size: 1rem;
+  }
+
   .schedule-item {
     flex-direction: column;
     text-align: center;
-    padding: 1.25rem;
+    padding: 1rem;
   }
-  
+
   .time-slot {
     min-width: auto;
     margin-right: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     width: 100%;
+    font-size: 1rem;
+    padding: 0.65rem;
   }
-  
+
+  .program-title {
+    font-size: 1.15rem;
+  }
+
+  .program-dj {
+    font-size: 0.95rem;
+  }
+
+  .program-description {
+    font-size: 0.9rem;
+  }
+
   .schedule-footer {
     flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .photo-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .photo-item img {
-    height: 180px;
-  }
-  
-  .dj-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .dj-card {
+    gap: 0.75rem;
     padding: 1.25rem;
   }
-  
+
+  .frequency-info,
+  .broadcast-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .photo-item img {
+    height: 150px;
+  }
+
+  .dj-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .dj-card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .dj-photo {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
   .dj-photo img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .dj-photo-placeholder {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .dj-placeholder-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
-  
-  .app {
-    padding-bottom: 140px;
+
+  .dj-info {
+    flex: 1;
+    min-width: 0;
   }
-  
-  .radio-player-footer {
-    height: 120px;
+
+  .dj-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
   }
-  
-  .player-content {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .track-info {
-    order: 1;
-  }
-  
-  .player-controls {
-    order: 2;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .volume-control {
-    gap: 0.5rem;
-  }
-  
-  .volume-slider {
-    width: 100px;
-  }
-  
-  .player-status {
-    order: 3;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .track-details {
-    gap: 0.25rem;
-  }
-  
-  .live-indicator {
-    margin-top: 0.125rem;
-  }
-  
-  .track-title {
+
+  .dj-specialty {
     font-size: 0.9rem;
+    margin-bottom: 0.35rem;
   }
-  
-  .track-artist {
+
+  .dj-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dj-schedule {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .schedule-label {
     font-size: 0.8rem;
+  }
+
+  .schedule-time {
+    font-size: 0.8rem;
+  }
+
+  /* Mobile Radio Player - Compact Layout */
+  .app {
+    padding-bottom: 80px;
+  }
+
+  .radio-player-footer {
+    height: 70px;
+  }
+
+  .player-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Track artwork on the left */
+  .track-artwork {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Track info in center-left */
+  .track-info {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .track-details {
+    flex: 1;
+    min-width: 0;
+    gap: 0.15rem;
+  }
+
+  .track-title {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .live-indicator {
+    margin-top: 0;
+  }
+
+  .live-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .live-text {
+    font-size: 0.65rem;
+  }
+
+  /* Play button on the right */
+  .player-controls {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .control-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    padding: 0;
+  }
+
+  .play-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  /* Volume control in bottom row */
+  .volume-control {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .volume-icon {
+    font-size: 0.85rem;
+  }
+
+  .volume-slider {
+    flex: 1;
+    max-width: 100px;
+  }
+
+  .volume-value {
+    font-size: 0.65rem;
+    min-width: 28px;
+  }
+
+  /* Status on bottom right */
+  .player-status {
+    grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: auto;
+  }
+
+  .frequency-display {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .freq-label {
+    font-size: 0.65rem;
+  }
+
+  .freq-value {
+    font-size: 0.8rem;
+  }
+
+  .signal-indicator {
+    display: flex;
+    gap: 1.5px;
+  }
+
+  .signal-bar {
+    width: 2px;
+  }
+
+  .signal-bar:nth-child(1) { height: 6px; }
+  .signal-bar:nth-child(2) { height: 9px; }
+  .signal-bar:nth-child(3) { height: 12px; }
+  .signal-bar:nth-child(4) { height: 15px; }
+  .signal-bar:nth-child(5) { height: 18px; }
+
+  .offline-cross {
+    font-size: 1rem;
+  }
+
+  .error-indicator {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    padding: 0.3rem 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .error-text {
+    font-size: 0.65rem;
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.5rem 0.35rem;
   }
-  
+
   .header-content {
-    gap: 1rem;
-  }
-  
-  .header-logo {
-    height: 60px;
-  }
-  
-  .sticky-nav {
-    padding: 0 0.5rem;
-  }
-  
-  .nav-list {
     gap: 0.5rem;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem 0;
   }
-  
+
+  .header-logo {
+    height: 45px;
+  }
+
+  .broadcast-info {
+    display: none;
+  }
+
+  .sticky-nav {
+    padding: 0 0.75rem;
+  }
+
+  .hamburger-menu {
+    width: 28px;
+    height: 28px;
+    margin: 0.5rem 0;
+  }
+
+  .hamburger-line {
+    height: 2.5px;
+  }
+
+  .nav-list {
+    width: 75%;
+    padding: 4rem 0 2rem;
+  }
+
   .nav-link {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    max-width: 200px;
-    text-align: center;
+    font-size: 0.95rem;
+    padding: 0.9rem 1.25rem;
   }
   
   .welcome-text {
@@ -1724,47 +2048,86 @@ html {
   }
   
   .timeline::before {
-    left: 20px;
+    display: none;
   }
-  
+
   .timeline-item {
-    padding-left: 50px;
+    flex-direction: column !important;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
   }
-  
+
   .timeline-year {
-    left: -50px;
-    width: 50px;
-    height: 50px;
-    font-size: 0.9rem;
+    position: static;
+    width: auto;
+    height: auto;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0.2rem;
+    border: none;
+    border-radius: 0;
+    text-align: left;
+    display: block;
+    line-height: 1.2;
+    flex: none;
   }
-  
+
+  .timeline-year::before {
+    display: none !important;
+  }
+
   .timeline-content {
-    padding: 1rem;
+    padding: 0.9rem;
+    width: 100%;
+    margin: 0 !important;
   }
-  
+
   .timeline-content h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .timeline-content p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .timeline-content ul {
+    padding-left: 1rem;
+  }
+
+  .timeline-content li {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
   }
 
   .story-block {
-    padding: 1.25rem 1.25rem;
+    padding: 1rem;
   }
 
   .story-block h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   .story-block p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 
   .quote {
-    padding: 1rem 1.25rem;
-    font-size: 0.95rem;
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .dj-list {
+    padding: 1rem;
+  }
+
+  .note {
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
   }
 
   .values-grid {
@@ -1822,62 +2185,527 @@ html {
   
   .photo-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 0 0.5rem;
   }
-  
+
   .photo-item img {
-    height: 160px;
+    height: 140px;
   }
-  
+
   .photo-caption {
-    padding: 0.75rem;
-    font-size: 0.9rem;
+    padding: 0.6rem;
+    font-size: 0.85rem;
   }
-  
+
   .dj-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
     padding: 0 0.5rem;
+    max-width: 100%;
   }
-  
+
   .dj-card {
-    padding: 1rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.75rem;
   }
-  
+
+  .dj-photo {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
   .dj-photo img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   .dj-photo-placeholder {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   .dj-placeholder-text {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
-  
+
+  .dj-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
   .dj-name {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    margin: 0;
   }
-  
+
   .dj-specialty {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin: 0;
   }
-  
+
   .dj-description {
+    font-size: 0.75rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .dj-schedule {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .schedule-label {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+
+  .schedule-time {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+
+  /* Mobile Radio Player - Extra Compact for Small Phones */
+  .app {
+    padding-bottom: 70px;
+  }
+
+  .radio-player-footer {
+    height: 65px;
+  }
+
+  .player-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .track-artwork {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 44px;
+    height: 44px;
+  }
+
+  .track-info {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .track-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .track-title {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.1rem;
+  }
+
+  .live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .live-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .live-text {
+    font-size: 0.6rem;
+  }
+
+  .player-controls {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .control-btn {
+    display: none;
+  }
+
+  .play-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .volume-control {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .volume-icon {
+    font-size: 0.8rem;
+  }
+
+  .volume-slider {
+    flex: 1;
+    max-width: 80px;
+    height: 3px;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+  }
+
+  .volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+  }
+
+  .volume-value {
+    font-size: 0.6rem;
+    min-width: 24px;
+  }
+
+  .player-status {
+    display: none;
+  }
+
+  .frequency-display {
+    display: none;
+  }
+
+  .signal-indicator {
+    display: none;
+  }
+
+  .error-indicator {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    padding: 0.25rem 0.4rem;
+    margin-top: 0.2rem;
+  }
+
+  .error-text {
+    font-size: 0.6rem;
+  }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+  body {
+    min-width: 360px;
+  }
+
+  .header {
+    padding: 0.4rem 0.4rem 0.3rem;
+  }
+
+  .header-logo {
+    height: 40px;
+  }
+
+  .broadcast-info {
+    display: none;
+  }
+
+  .sticky-nav {
+    padding: 0 0.5rem;
+  }
+
+  .hamburger-menu {
+    width: 26px;
+    height: 26px;
+    margin: 0.4rem 0;
+  }
+
+  .hamburger-line {
+    height: 2px;
+  }
+
+  .nav-list {
+    width: 80%;
+    padding: 3.5rem 0 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.85rem 1.15rem;
+  }
+
+  .section {
+    padding: 2rem 0.75rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-3 h2 {
+    font-size: 1.4rem;
+  }
+
+  .story-block {
+    padding: 0.9rem;
+  }
+
+  .story-block h3 {
+    font-size: 1rem;
+  }
+
+  .story-block p {
     font-size: 0.85rem;
   }
-  
-  .player-content {
-    padding: 0.75rem;
+
+  .timeline::before {
+    left: 16px;
   }
-  
+
+  .timeline-item {
+    padding-left: 40px;
+  }
+
+  .timeline-year {
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.7rem;
+  }
+
+  .timeline-content {
+    padding: 0.8rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 0.95rem;
+  }
+
+  .timeline-content li {
+    font-size: 0.8rem;
+  }
+
+  .schedule-item {
+    padding: 0.9rem;
+  }
+
+  .time-slot {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .program-title {
+    font-size: 1rem;
+  }
+
+  .photo-grid,
+  .dj-grid {
+    padding: 0 0.25rem;
+  }
+
+  .photo-item img {
+    height: 130px;
+  }
+
+  .dj-grid {
+    gap: 0.6rem;
+    padding: 0 0.35rem;
+  }
+
+  .dj-card {
+    padding: 0.65rem;
+    gap: 0.65rem;
+  }
+
+  .dj-photo img,
+  .dj-photo-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dj-placeholder-text {
+    font-size: 1.8rem;
+  }
+
+  .dj-name {
+    font-size: 1rem;
+  }
+
+  .dj-specialty {
+    font-size: 0.75rem;
+  }
+
+  .dj-description {
+    display: none;
+  }
+
+  .dj-schedule {
+    padding: 0.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .schedule-label,
+  .schedule-time {
+    font-size: 0.7rem;
+  }
+
+  .app {
+    padding-bottom: 90px;
+  }
+
+  .radio-player-footer {
+    height: 85px;
+  }
+
+  .player-content {
+    padding: 0.4rem;
+    gap: 0.4rem;
+  }
+
+  .track-info {
+    gap: 0.5rem;
+  }
+
   .track-artwork {
+    width: 40px;
+    height: 40px;
+  }
+
+  .track-title {
+    font-size: 0.75rem;
+  }
+
+  .control-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .play-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .volume-slider {
     width: 50px;
-    height: 50px;
+  }
+
+  .volume-icon {
+    font-size: 0.85rem;
+  }
+
+  .volume-value {
+    font-size: 0.6rem;
+    min-width: 26px;
+  }
+
+  .freq-value {
+    font-size: 0.8rem;
+  }
+
+  /* Ultra Compact Player for 360px */
+  .app {
+    padding-bottom: 65px;
+  }
+
+  .radio-player-footer {
+    height: 60px;
+  }
+
+  .player-content {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .track-artwork {
+    grid-column: 1;
+    grid-row: 1;
+    width: 40px;
+    height: 40px;
+  }
+
+  .track-info {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .track-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .track-title {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .live-indicator {
+    gap: 0.25rem;
+  }
+
+  .live-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .live-text {
+    font-size: 0.55rem;
+  }
+
+  .player-controls {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .play-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .volume-control {
+    display: none;
+  }
+
+  .error-indicator {
+    padding: 0.2rem 0.35rem;
+  }
+
+  .error-text {
+    font-size: 0.55rem;
   }
 }
 
@@ -1974,42 +2802,71 @@ html {
   .contact-container {
     padding: 1rem;
   }
-  
+
   .contact-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
-  
+
   .contact-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
-  
+
   .email-info {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
-  
+
   .email-item {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
-  
+
   .email-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+
+  .email-details h4 {
+    font-size: 1rem;
+  }
+
+  .email-link {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
+  .contact-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .contact-description {
+    font-size: 0.9rem;
+  }
+
   .email-item {
     flex-direction: column;
     text-align: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding: 1rem;
   }
-  
+
   .email-icon {
     align-self: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .email-details h4 {
+    font-size: 0.95rem;
+  }
+
+  .email-link {
+    font-size: 0.85rem;
+    word-break: break-word;
   }
 }
 

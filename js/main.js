@@ -23,6 +23,8 @@ let errorIndicator;
 let imageModal;
 let modalImage;
 let modalCloseBtn;
+let hamburgerBtn;
+let navMenu;
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', init);
@@ -40,12 +42,15 @@ function init() {
   imageModal = document.getElementById('image-modal');
   modalImage = document.getElementById('modal-image');
   modalCloseBtn = document.getElementById('modal-close-btn');
+  hamburgerBtn = document.getElementById('hamburger-btn');
+  navMenu = document.getElementById('nav-menu');
 
   // Setup event listeners
   setupAudioListeners();
   setupPlayerControls();
   setupPhotoAlbum();
   setupModal();
+  setupMobileMenu();
 
   // Check stream availability
   checkStreamAvailability();
@@ -210,6 +215,46 @@ function closeModal() {
   selectedImage = null;
   imageModal.style.display = 'none';
   document.body.style.overflow = '';
+}
+
+// Mobile Menu
+function setupMobileMenu() {
+  // Toggle menu
+  hamburgerBtn.addEventListener('click', function() {
+    hamburgerBtn.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close menu when clicking a link
+  const navLinks = navMenu.querySelectorAll('.nav-link');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburgerBtn.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+      if (navMenu.classList.contains('active')) {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      hamburgerBtn.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 }
 
 // Update UI based on state
