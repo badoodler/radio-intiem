@@ -253,7 +253,7 @@ html {
 
 /* Section Variations */
 .section-1 {
-  background-image: url('../images/radio_01_01.png');
+  background-image: url('../images/bg-history.png');
   background-color: #323232;
   background-size: 100%;
   background-position: top;
@@ -667,7 +667,7 @@ html {
 }
 
 .section-3 {
-  background-image: url('../images/station_02_01.png');
+  background-image: url('../images/bg-schedule.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
