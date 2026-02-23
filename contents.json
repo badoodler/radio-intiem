@@ -179,7 +179,6 @@
   },
 
   "photos": [
-    { "src": "album/foto-01.jpg", "alt": "" },
     { "src": "album/foto-02.jpg", "alt": "" },
     { "src": "album/foto-03.jpg", "alt": "" },
     { "src": "album/foto-04.jpg", "alt": "" },
