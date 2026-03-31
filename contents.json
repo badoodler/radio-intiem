@@ -186,7 +186,9 @@
     { "src": "album/foto-06.jpg", "alt": "" },
     { "src": "album/foto-07.jpg", "alt": "" },
     { "src": "album/foto-08.jpg", "alt": "" },
-    { "src": "album/foto-09.jpg", "alt": "" }
+    { "src": "album/foto-09.jpg", "alt": "" },
+    { "src": "album/foto-10.jpg", "alt": "" },
+    { "src": "album/foto-11.jpg", "alt": "" }
   ],
 
   "contact": {
